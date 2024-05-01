@@ -1,4 +1,10 @@
 from os import name
-from importlib import import_module
 
-globals().update(import_module(f'.{name}', __package__).__dict__)
+__all__ = ["appdata_path", "setProxy", "clearProxy"]
+
+if name == "nt":
+    from CurrOS.nt import *
+
+
+else:
+    from CurrOS.posix import *
