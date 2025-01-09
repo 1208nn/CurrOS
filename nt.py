@@ -1,11 +1,12 @@
+# pylint: disable=missing-module-docstring,missing-function-docstring,missing-class-docstring
+# pylint: disable=invalid-name,pointless-string-statement
 import os
-
+import winreg
 appdata_path = os.path.join(os.getenv("APPDATA"))
 
 
 def setProxy(host, port):
-    # set system proxy for windows
-    import winreg
+    # set system proxy for Windows
 
     registry = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)
     key = winreg.OpenKey(
@@ -21,8 +22,7 @@ def setProxy(host, port):
 
 
 def clearProxy():
-    # clear system proxy for windows
-    import winreg
+    # clear system proxy for Windows
 
     registry = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)
     key = winreg.OpenKey(
